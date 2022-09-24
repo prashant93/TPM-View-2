@@ -76,7 +76,11 @@ line-height: 80px;text-align: left;
 
 <ng-template #listTemplate let-list="list">
   <div cdkDropList (cdkDropListDropped)="drop($event)">
-    <div *ngFor="let candidateDetail of list" cdkDrag>
+    <div
+      *ngFor="let candidateDetail of list"
+      cdkDrag
+      [cdkDragDisabled]="candidateDetail.isDropped"
+    >
       <div *cdkDragPlaceholder></div>
       <ng-container
         [ngTemplateOutlet]="itemTemplate"
@@ -88,7 +92,13 @@ line-height: 80px;text-align: left;
 </ng-template>
 
 <ng-template #itemTemplate let-candidateDetail>
-  <mat-icon class="drag-handle" cdkDragHandle> reorder </mat-icon>
+  <mat-icon
+  *ngIf="!candidateDetail.isDropped"
+    class="drag-handle"
+    cdkDragHandle
+  >
+    drag_indicator
+  </mat-icon>
 
   <div class="card-container">
     <div style="display:flex">

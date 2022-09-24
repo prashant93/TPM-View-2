@@ -13,7 +13,7 @@ export class OffersComponent implements OnInit {
     { declined: 'thumb_down' },
     { rejected: 'do_not_disturb_on' },
   ];
-  selectedJoiningStatus = '';
+  selectedJoiningStatus = 'thumb_up';
   constructor() {}
 
   getOffers() {

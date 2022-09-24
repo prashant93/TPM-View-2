@@ -39,14 +39,10 @@
 
   <div class="seperator" style="padding: 20px 0 0 0;">
     <span class="caption">Joining Status</span>
-    <span class="caption"
-      ><button
-        mat-icon-button
-        [matMenuTriggerFor]="menu"
-        aria-label="Example icon-button with a menu"
-      >
-        <mat-icon>{{ selectedJoiningStatus }}</mat-icon>
-      </button>
+    <span class="caption">
+      <mat-icon [matMenuTriggerFor]="menu">{{
+        selectedJoiningStatus
+      }}</mat-icon>
       <mat-menu #menu="matMenu" yPosition="below">
         <button mat-menu-item (click)="setActiveItem('joining')">
           <mat-icon
@@ -78,7 +74,35 @@
 
   <div class="seperator" style="padding: 20px 0 0 0;">
     <span class="caption" title="Background Verification">B.V.</span>
-    <span class="caption">1 Jul 2018</span>
+    <span class="caption"> <mat-icon [matMenuTriggerFor]="Bvmenu">{{
+    selectedJoiningStatus
+  }}</mat-icon>
+  <mat-menu #Bvmenu="matMenu" yPosition="below">
+    <button mat-menu-item (click)="setActiveItem('joining')">
+      <mat-icon
+        [ngStyle]="{
+          color: activeItem === 'joining' ? 'blue' : 'green'
+        }"
+        >thumb_up</mat-icon
+      >
+    </button>
+    <button mat-menu-item (click)="setActiveItem('declined')">
+      <mat-icon
+        [ngStyle]="{
+          color: activeItem === 'declined' ? 'blue' : 'red'
+        }"
+        >thumb_down</mat-icon
+      >
+    </button>
+    <button mat-menu-item (click)="setActiveItem('rejected')">
+      <mat-icon
+        [ngStyle]="{
+          color: activeItem === 'rejected' ? 'blue' : 'orange'
+        }"
+        >do_not_disturb_on</mat-icon
+      >
+    </button>
+  </mat-menu></span>
   </div>
   <div>
     <div class="comments">
@@ -91,9 +115,9 @@
     </div>
 
     <div style="line-height:80px; float:right">
-      <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+      <mat-icon [matMenuTriggerFor]="Commentmenu">more_vert</mat-icon>
     </div>
-    <mat-menu #menu="matMenu">
+    <mat-menu #Commentmenu="matMenu">
       <button mat-menu-item>EDIT COMMENT</button>
       <button mat-menu-item>HIDE CANDIDATE</button>
     </mat-menu>
