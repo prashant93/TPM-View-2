@@ -1,0 +1,287 @@
+<h4>Offer Extended</h4>
+
+<div class="card-container">
+  <div style="display:flex">
+    <div class="candidate-pic">
+      <mat-icon
+        class="candidate-icon"
+        aria-hidden="false"
+        aria-label="candidate"
+        fontIcon="account_circle"
+      ></mat-icon>
+    </div>
+
+    <div class="candidate-detail">
+      <p class="name">Kunjan Kumar</p>
+      <p class="position">Director, Housing and Development</p>
+      <p class="location">New Delhi</p>
+    </div>
+  </div>
+  <div class="seperator" cdkDrag>
+    <mat-icon
+      class="hire-icon"
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="thumb_up"
+    ></mat-icon>
+    <span class="caption">Hire</span>
+    <span class="caption">1 Jul 2018</span>
+  </div>
+  <div class="seperator" style="padding:20px">
+    <span class="caption">Awaiting <br /></span>
+    <span class="caption">Feedback <br /></span>
+  </div>
+  <div class="seperator">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="thumb_down"
+    ></mat-icon>
+    <span class="caption">No Hire</span>
+    <span class="caption">1 Jul 2018</span>
+  </div>
+
+  <div style="    padding-top: 20px;">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="date_range"
+    ></mat-icon>
+    <span class="caption">1 Jul 2018</span>
+  </div>
+  <div class="leads seperator">7</div>
+
+  <div class="captured">3</div>
+  <div style="margin-top:20px">
+    <p class="comments">No Comments</p>
+    <mat-icon [matMenuTriggerFor]="menu" style="margin-right:20px;float:right"
+      >more_vert</mat-icon
+    >
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>EDIT COMMENT</button>
+      <button mat-menu-item>HIDE CANDIDATE</button>
+    </mat-menu>
+  </div>
+</div>
+
+<h4>Prospects</h4>
+<div class="header">
+  <div>CANDIDATE DETAILS</div>
+  <div>INTERVIEW SCHEDULE</div>
+  <div>REFERENCE CHECK</div>
+  <div>COMMENTS</div>
+</div>
+<div class="header1">
+  <div style="padding:30px; text-align:right">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="chevron_left"
+    ></mat-icon>
+    <mat-icon
+      class="candidate-paginate"
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="account_box"
+    ></mat-icon>
+    <mat-icon
+      class="candidate-paginate"
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="account_box"
+    ></mat-icon>
+    <mat-icon
+      class="candidate-paginate"
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="account_box"
+    ></mat-icon>
+    <mat-icon
+      class="candidate-paginate"
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="account_box"
+    ></mat-icon>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="chevron_right"
+    ></mat-icon>
+  </div>
+  <div
+    class="seperator"
+    style="
+line-height: 80px;
+"
+  >
+    LEADS
+  </div>
+  <div
+    style="
+line-height: 80px;text-align: left;
+  margin-left: 10px;
+"
+  >
+    CAPTURED
+  </div>
+</div>
+
+<div class="card-container" *ngFor="let candidateDetail of candidateDetails">
+  <div style="display:flex">
+    <div class="candidate-pic">
+      <mat-icon
+        class="candidate-icon"
+        aria-hidden="false"
+        aria-label="candidate"
+        >{{ candidateDetail.candidateDetails.profilePic }}</mat-icon
+      >
+    </div>
+
+    <div class="candidate-detail">
+      <p class="name">
+        {{ candidateDetail.candidateDetails.firstName }}
+        {{ candidateDetail.candidateDetails.lastName }}
+      </p>
+      <p class="position">
+        {{ candidateDetail.candidateDetails.position }},
+        {{ candidateDetail.candidateDetails.organization }}
+      </p>
+      <p class="location">{{ candidateDetail.candidateDetails.address }}</p>
+    </div>
+  </div>
+  <div class="seperator">
+    <mat-icon
+      [ngClass]="candidateDetail.isHired ? 'hire-icon' : ''"
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="thumb_up"
+    ></mat-icon>
+    <span class="caption">Hire</span>
+    <span class="caption">{{ candidateDetail.hireDate }}</span>
+  </div>
+  <div class="seperator" style="padding:20px">
+    <span
+      class="caption"
+      [style.color]="candidateDetail.isAwaitingFeedback ? 'red' : null"
+      >Awaiting <br
+    /></span>
+    <span
+      class="caption"
+      [style.color]="candidateDetail.isAwaitingFeedback ? 'red' : null"
+      >Feedback</span
+    >
+  </div>
+  <div class="seperator">
+    <div *ngIf="candidateDetail.isUndecided; else noHire">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="candidate"
+        fontIcon="do_not_disturb_on"
+      ></mat-icon>
+      <span class="caption">Undecided</span>
+    </div>
+
+    <ng-template #noHire>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="candidate"
+        fontIcon="thumb_down"
+      ></mat-icon>
+
+      <span class="caption">No Hire</span>
+    </ng-template>
+
+    <span class="caption">{{ candidateDetail.hireDate }}</span>
+  </div>
+  <div style="padding-top: 20px;">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="date_range"
+    ></mat-icon>
+    <span class="caption">{{ candidateDetail.hireDate }}</span>
+  </div>
+  <div class="leads seperator">{{ candidateDetail.leads }}</div>
+  <div class="captured">{{ candidateDetail.captured }}</div>
+  <div style="margin-top:20px">
+    <div *ngIf="candidateDetail.comments; else noComments">
+      <p class="comments">{{ candidateDetail.comments }}</p>
+    </div>
+    <ng-template #noComments>
+      <p class="comments">No Comments</p>
+    </ng-template>
+    <mat-icon [matMenuTriggerFor]="menu" style="margin-right:20px;float:right"
+      >more_vert</mat-icon
+    >
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>EDIT COMMENT</button>
+      <button mat-menu-item>HIDE CANDIDATE</button>
+    </mat-menu>
+  </div>
+</div>
+
+<h4>Dropped</h4>
+<div class="card-container">
+  <div style="display:flex">
+    <div class="candidate-pic">
+      <mat-icon
+        class="candidate-icon"
+        aria-hidden="false"
+        aria-label="candidate"
+        fontIcon="account_circle"
+      ></mat-icon>
+    </div>
+
+    <div class="candidate-detail">
+      <p class="name">Kunjan Kumar</p>
+      <p class="position">Director, Housing and Development</p>
+      <p class="location">New Delhi</p>
+    </div>
+  </div>
+  <div class="seperator" cdkDrag>
+    <mat-icon
+      class="hire-icon"
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="thumb_up"
+    ></mat-icon>
+    <span class="caption">Hire</span>
+    <span class="caption">1 Jul 2018</span>
+  </div>
+  <div class="seperator" style="padding:20px">
+    <span class="caption">Awaiting <br /></span>
+    <span class="caption">Feedback <br /></span>
+  </div>
+  <div class="seperator">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="thumb_down"
+    ></mat-icon>
+    <span class="caption">No Hire</span>
+    <span class="caption">1 Jul 2018</span>
+  </div>
+
+  <div style="    padding-top: 20px;">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="date_range"
+    ></mat-icon>
+    <span class="caption">1 Jul 2018</span>
+  </div>
+  <div class="leads seperator">7</div>
+
+  <div class="captured">3</div>
+  <div style="margin-top:20px">
+    <p class="comments">No Comments</p>
+    <mat-icon [matMenuTriggerFor]="menu" style="margin-right:20px;float:right"
+      >more_vert</mat-icon
+    >
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>EDIT COMMENT</button>
+
+      <button mat-menu-item>HIDE CANDIDATE</button>
+    </mat-menu>
+  </div>
+</div>

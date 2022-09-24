@@ -1,0 +1,56 @@
+[
+  {
+    "candidateDetails": {
+      "firstName": "Kunjan",
+      "lastName": "Kumar",
+      "position": "Director",
+      "organization": "Housing and Development",
+      "address": "Delhi",
+      "profilePic": "account_circle"
+    },
+    "isHired": true,
+    "isAwaitingFeedback": false,
+    "isUndecided": false,
+    "hireDate": "1 Jul 2018",
+    "leads": 7,
+    "captured": 3,
+    "comments": "",
+    "isDropped": false
+  },
+  {
+    "candidateDetails": {
+      "firstName": "Aniket",
+      "lastName": "Joshi",
+      "position": "Director",
+      "organization": "Piramal Enterprises",
+      "address": "Mumbai",
+      "profilePic": "account_circle"
+    },
+    "isHired": true,
+    "isAwaitingFeedback": false,
+    "isUndecided": true,
+    "hireDate": "1 Jul 2018",
+    "leads": 7,
+    "captured": 3,
+    "comments": "Candidate Joining is not decided yet.",
+    "isDropped": false
+  },
+  {
+    "candidateDetails": {
+      "firstName": "Kunal",
+      "lastName": "Kamra",
+      "position": "Director",
+      "organization": "Piramal Enterprises",
+      "address": "Mumbai",
+      "profilePic": "account_circle"
+    },
+    "isHired": true,
+    "isAwaitingFeedback": true,
+    "isUndecided": false,
+    "hireDate": "1 Jul 2018",
+    "leads": 7,
+    "captured": 3,
+    "comments": "Waiting Candidate Feedback for confirmatin on Joining",
+    "isDropped": false
+  }
+]
