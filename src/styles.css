@@ -10,3 +10,68 @@ body {
   background-color: #f5f5f5;
   margin: auto;
 }
+
+.seperator {
+  border-right: 1px solid #c6c6cc5e;
+}
+
+.position,
+.location {
+  color: #909095;
+}
+p {
+  margin: 5px;
+}
+.caption {
+  font-size: 13px;
+  display: block;
+  margin-bottom: 10px;
+}
+.hire-icon {
+  color: #50c350;
+}
+.candidate-icon,
+.name,
+.leads,
+.captured,
+.header {
+  color: black;
+}
+.candidate-icon {
+  transform: scale(2);
+}
+.candidate-paginate {
+  transform: scale(3);
+  margin-right: 30px;
+  margin-left: 30px;
+}
+.candidate-detail {
+  padding: 10px;
+  width: 200px;
+  text-align: initial;
+}
+.candidate-detail > p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.name {
+  font-size: 15px;
+  font-weight: 500;
+}
+.position,
+.location,
+.comments {
+  font-size: 13px;
+}
+.comments {
+  width: 80%;
+  height: 75px;
+  overflow: hidden;
+  text-overflow: clip;
+  float: left;
+}
+
+.candidate-pic {
+  padding: 20px 10px;
+}

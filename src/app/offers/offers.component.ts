@@ -8,11 +8,9 @@ import offers from '../../assets/offers.json';
   styleUrls: ['./offers.component.css'],
 })
 export class OffersComponent implements OnInit {
-  candidateDetails: any;
-  prospectsList: any;
-  droppedList: any;
   offerList: any;
-
+  joiningStatus = [{'joining':'thumb_up'},{'declined':'thumb_down'},{'rejected':'do_not_disturb_on'}];
+  selectedJoiningStatus = ''
   constructor(private dataService: DataService) {}
 
   getOffers() {
@@ -21,7 +19,17 @@ export class OffersComponent implements OnInit {
     //   this.candidateDetail = candidate;
     // });
   }
+  activeItem: string;
 
+  setActiveItem(page: string) {
+    this.activeItem = page;
+    this.getJoiningStatusIcon(this.activeItem)
+
+  }
+  getJoiningStatusIcon(item){
+    this.selectedJoiningStatus = this.joiningStatus.filter(x=>x[item])[0][item];
+    return this.selectedJoiningStatus;
+  }
   ngOnInit() {
     this.getOffers();
   }

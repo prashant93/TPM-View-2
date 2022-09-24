@@ -12,8 +12,8 @@ import { ProspectsComponent } from './prospects/prospects.component';
 @NgModule({
   imports: [
     BrowserModule,
-    MaterialModule,
     BrowserAnimationsModule,
+    MaterialModule,
     HttpClientModule,
   ],
   declarations: [

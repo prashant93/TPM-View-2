@@ -1,112 +1,4 @@
-.card-container {
-  display: grid;
-  grid-template-columns: 250px 100px 100px 100px 100px 100px 100px 250px;
-  grid-gap: 0;
-  background-color: #ffffff;
-  max-height: 200px;
-  padding: 10px 15px 5px 15px;
-  text-align: center;
-  margin-bottom: 20px;
-  width: 100%;
-}
-.seperator {
-  border-right: 1px solid #c6c6cc5e;
-}
-
-.card-container,
-* {
-  color: #909095;
-}
-p {
-  margin: 5px;
-}
-.caption {
-  font-size: 13px;
-  display: block;
-  margin-bottom: 10px;
-}
-.hire-icon {
-  color: #50c350;
-}
-.candidate-icon,
-.candidate-detail,
-.name,
-.leads,
-.captured,
-.header {
-  color: black;
-}
-.candidate-icon {
-  transform: scale(2);
-}
-.candidate-paginate {
-  transform: scale(3);
-  margin-right: 30px;
-  margin-left: 30px;
-}
-.candidate-detail {
-  padding: 10px;
-  width: 200px;
-  text-align: initial;
-}
-.candidate-detail > p {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.name {
-  font-size: 15px;
-  font-weight: 500;
-}
-.position,
-.location,
-.comments {
-  font-size: 13px;
-}
-.comments {
-  width: 80%;
-  height: 75px;
-  overflow: hidden;
-  text-overflow: clip;
-  float: left;
-}
-
-.leads,
-.captured {
-  line-height: 80px;
-  font-size: 20px;
-}
-.candidate-pic {
-  padding: 20px 10px;
-}
-
-.detail-header {
-  display: grid;
-  grid-template-columns: 250px 400px 200px 250px;
-  grid-gap: 0;
-  background-color: #ffffff;
-  max-height: 200px;
-  padding: 10px 15px 5px 15px;
-  text-align: center;
-  width: 100%;
-}
-
-.card-container:active {
-  outline: none;
-  border: solid 1.5px #629fcb !important;
-}
-.paginator {
-  display: grid;
-  grid-template-columns: 650px 100px auto;
-  grid-gap: 0;
-  max-height: 200px;
-  font-size: 13px;
-  padding: 10px 15px 5px 15px;
-  text-align: center;
-  width: 100%;
-}
-
-.offers {
+.offers-container {
   display: grid;
   grid-template-columns: 250px 125px 125px 125px 125px 100px 250px;
   grid-gap: 0;
@@ -116,4 +8,13 @@ p {
   text-align: center;
   margin-bottom: 20px;
   width: 100%;
+}
+
+.offers-container > * {
+  color: #909095;
+}
+
+.date {
+  color: black;
+  font-weight:400
 }

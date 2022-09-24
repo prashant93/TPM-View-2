@@ -1,17 +1,18 @@
 [
   {
     "candidateDetails": {
-      "firstName": "Kunjan",
-      "lastName": "Kumar",
+      "firstName": "Anil",
+      "lastName": "Kapoor",
       "position": "Director",
-      "organization": "Housing and Development",
-      "address": "Delhi",
+      "organization": "Piramal Enterprises",
+      "address": "Kolkatta",
       "profilePic": "account_circle"
     },
     "offerExtendedOn": "21 Jul 2020",
     "offerAcceptedOn": "23 Jul 2020",
     "DateOfJoining": "1 Sep 2020",
-    "backgroundVerification": "1 Jul 2018",
+    "joiningStatus": "joining",
+    "backgroundVerification": "completed",
     "comments": ""
   }
 ]
