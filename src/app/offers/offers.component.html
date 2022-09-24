@@ -203,16 +203,19 @@ line-height: 80px;text-align: left;
   </div>
   <div class="leads seperator">{{ candidateDetail.leads }}</div>
   <div class="captured">{{ candidateDetail.captured }}</div>
-  <div style="margin-top:20px">
-    <div *ngIf="candidateDetail.comments; else noComments">
-      <p class="comments">{{ candidateDetail.comments }}</p>
+  <div>
+    <div class="comments">
+      <div *ngIf="candidateDetail.comments; else noComments">
+        <span>{{ candidateDetail.comments }}</span>
+      </div>
+      <ng-template #noComments>
+        <span>No Comments</span>
+      </ng-template>
     </div>
-    <ng-template #noComments>
-      <p class="comments">No Comments</p>
-    </ng-template>
-    <mat-icon [matMenuTriggerFor]="menu" style="margin-right:20px;float:right"
-      >more_vert</mat-icon
-    >
+
+    <div style="line-height:80px; float:right">
+      <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+    </div>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>EDIT COMMENT</button>
       <button mat-menu-item>HIDE CANDIDATE</button>
