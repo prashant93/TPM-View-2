@@ -52,5 +52,23 @@
     "captured": 3,
     "comments": "Waiting Candidate Feedback for confirmatin on Joining",
     "isDropped": false
+  },
+  {
+    "candidateDetails": {
+      "firstName": "Kunal",
+      "lastName": "Kamra",
+      "position": "Director",
+      "organization": "Piramal Enterprises",
+      "address": "Mumbai",
+      "profilePic": "account_circle"
+    },
+    "isHired": true,
+    "isAwaitingFeedback": true,
+    "isUndecided": false,
+    "hireDate": "1 Jul 2018",
+    "leads": 4,
+    "captured": 3,
+    "comments": "Rejected Candidate",
+    "isDropped": true
   }
 ]

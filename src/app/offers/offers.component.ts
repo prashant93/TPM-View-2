@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
-import candidates from '../../assets/candidate.json';
+import offers from '../../assets/offers.json';
 
 @Component({
   selector: 'app-offers',
@@ -9,18 +9,20 @@ import candidates from '../../assets/candidate.json';
 })
 export class OffersComponent implements OnInit {
   candidateDetails: any;
+  prospectsList: any;
+  droppedList: any;
+  offerList: any;
 
   constructor(private dataService: DataService) {}
 
-  getCandidate() {
-    this.candidateDetails = candidates;
-
+  getOffers() {
+    this.offerList = offers;
     // this.dataService.getCandidte().subscribe((candidate) => {
     //   this.candidateDetail = candidate;
     // });
   }
 
   ngOnInit() {
-    this.getCandidate();
+    this.getOffers();
   }
 }

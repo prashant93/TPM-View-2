@@ -1,0 +1,184 @@
+<h4 class="header">Prospects</h4>
+
+<div class="detail-header">
+  <div>CANDIDATE DETAILS</div>
+  <div>INTERVIEW SCHEDULE</div>
+  <div>REFERENCE CHECK</div>
+  <div>COMMENTS</div>
+</div>
+<div class="paginator">
+  <div style="padding:30px; text-align:right">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="chevron_left"
+    ></mat-icon>
+    <mat-icon
+      class="candidate-paginate"
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="account_box"
+    ></mat-icon>
+    <mat-icon
+      class="candidate-paginate"
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="account_box"
+    ></mat-icon>
+    <mat-icon
+      class="candidate-paginate"
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="account_box"
+    ></mat-icon>
+    <mat-icon
+      class="candidate-paginate"
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="account_box"
+    ></mat-icon>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="candidate"
+      fontIcon="chevron_right"
+    ></mat-icon>
+  </div>
+  <div
+    class="seperator"
+    style="
+line-height: 80px;
+"
+  >
+    LEADS
+  </div>
+  <div
+    style="
+line-height: 80px;text-align: left;
+  margin-left: 10px;
+"
+  >
+    CAPTURED
+  </div>
+</div>
+
+<ng-container
+  [ngTemplateOutlet]="listTemplate"
+  [ngTemplateOutletContext]="{ list: prospectsList }"
+>
+</ng-container>
+
+<h4 class="header">Dropped</h4>
+<ng-container
+  [ngTemplateOutlet]="listTemplate"
+  [ngTemplateOutletContext]="{ list: droppedList }"
+>
+</ng-container>
+
+<ng-template #listTemplate let-list="list">
+  <div *ngFor="let candidateDetail of list">
+    <ng-container
+      [ngTemplateOutlet]="itemTemplate"
+      [ngTemplateOutletContext]="{ $implicit: candidateDetail }"
+    >
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #itemTemplate let-candidateDetail>
+  <div class="card-container">
+    <div style="display:flex">
+      <div class="candidate-pic">
+        <mat-icon
+          class="candidate-icon"
+          aria-hidden="false"
+          aria-label="candidate"
+          >{{ candidateDetail.candidateDetails.profilePic }}</mat-icon
+        >
+      </div>
+
+      <div class="candidate-detail">
+        <p class="name">
+          {{ candidateDetail.candidateDetails.firstName }}
+          {{ candidateDetail.candidateDetails.lastName }}
+        </p>
+        <p class="position">
+          {{ candidateDetail.candidateDetails.position }},
+          {{ candidateDetail.candidateDetails.organization }}
+        </p>
+        <p class="location">{{ candidateDetail.candidateDetails.address }}</p>
+      </div>
+    </div>
+    <div class="seperator">
+      <mat-icon
+        [ngClass]="candidateDetail.isHired ? 'hire-icon' : ''"
+        aria-hidden="false"
+        aria-label="candidate"
+        fontIcon="thumb_up"
+      ></mat-icon>
+      <span class="caption">Hire</span>
+      <span class="caption">{{ candidateDetail.hireDate }}</span>
+    </div>
+    <div class="seperator" style="padding:20px">
+      <span
+        class="caption"
+        [style.color]="candidateDetail.isAwaitingFeedback ? 'red' : null"
+        >Awaiting <br
+      /></span>
+      <span
+        class="caption"
+        [style.color]="candidateDetail.isAwaitingFeedback ? 'red' : null"
+        >Feedback</span
+      >
+    </div>
+    <div class="seperator">
+      <div *ngIf="candidateDetail.isUndecided; else noHire">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="candidate"
+          fontIcon="do_not_disturb_on"
+        ></mat-icon>
+        <span class="caption">Undecided</span>
+      </div>
+
+      <ng-template #noHire>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="candidate"
+          fontIcon="thumb_down"
+        ></mat-icon>
+
+        <span class="caption">No Hire</span>
+      </ng-template>
+
+      <span class="caption">{{ candidateDetail.hireDate }}</span>
+    </div>
+    <div style="padding-top: 20px;">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="candidate"
+        fontIcon="date_range"
+      ></mat-icon>
+      <span class="caption">{{ candidateDetail.hireDate }}</span>
+    </div>
+    <div class="leads seperator">{{ candidateDetail.leads }}</div>
+    <div class="captured">{{ candidateDetail.captured }}</div>
+    <div>
+      <div class="comments">
+        <div *ngIf="candidateDetail.comments; else noComments">
+          <span>{{ candidateDetail.comments }}</span>
+        </div>
+        <ng-template #noComments>
+          <span>No Comments</span>
+        </ng-template>
+      </div>
+
+      <div style="line-height:80px; float:right">
+        <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+      </div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>EDIT COMMENT</button>
+        <button mat-menu-item>HIDE CANDIDATE</button>
+      </mat-menu>
+    </div>
+  </div>
+</ng-template>
