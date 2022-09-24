@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../service/data.service';
 import offers from '../../assets/offers.json';
 
 @Component({
@@ -15,7 +14,7 @@ export class OffersComponent implements OnInit {
     { rejected: 'do_not_disturb_on' },
   ];
   selectedJoiningStatus = '';
-  constructor(private dataService: DataService) {}
+  constructor() {}
 
   getOffers() {
     this.offerList = offers;

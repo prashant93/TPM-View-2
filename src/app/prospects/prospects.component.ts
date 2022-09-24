@@ -1,5 +1,5 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../service/data.service';
 import candidates from '../../assets/candidate.json';
 
 @Component({
@@ -12,7 +12,7 @@ export class ProspectsComponent implements OnInit {
   prospectsList: any;
   droppedList: any;
 
-  constructor(private dataService: DataService) {}
+  constructor() {}
 
   getCandidate() {
     this.candidateDetails = candidates;
@@ -24,5 +24,8 @@ export class ProspectsComponent implements OnInit {
 
   ngOnInit() {
     this.getCandidate();
+  }
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.prospectsList, event.previousIndex, event.currentIndex);
   }
 }

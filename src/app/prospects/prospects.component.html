@@ -75,16 +75,21 @@ line-height: 80px;text-align: left;
 </ng-container>
 
 <ng-template #listTemplate let-list="list">
-  <div *ngFor="let candidateDetail of list">
-    <ng-container
-      [ngTemplateOutlet]="itemTemplate"
-      [ngTemplateOutletContext]="{ $implicit: candidateDetail }"
-    >
-    </ng-container>
+  <div cdkDropList (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let candidateDetail of list" cdkDrag>
+      <div *cdkDragPlaceholder></div>
+      <ng-container
+        [ngTemplateOutlet]="itemTemplate"
+        [ngTemplateOutletContext]="{ $implicit: candidateDetail }"
+      >
+      </ng-container>
+    </div>
   </div>
 </ng-template>
 
 <ng-template #itemTemplate let-candidateDetail>
+  <mat-icon class="drag-handle" cdkDragHandle> reorder </mat-icon>
+
   <div class="card-container">
     <div style="display:flex">
       <div class="candidate-pic">

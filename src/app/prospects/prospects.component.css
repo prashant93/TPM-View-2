@@ -45,3 +45,11 @@
   text-align: center;
   width: 100%;
 }
+
+.drag-handle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: 10px;
+  margin-top: 40px;
+}
