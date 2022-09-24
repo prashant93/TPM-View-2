@@ -9,25 +9,27 @@ import offers from '../../assets/offers.json';
 })
 export class OffersComponent implements OnInit {
   offerList: any;
-  joiningStatus = [{'joining':'thumb_up'},{'declined':'thumb_down'},{'rejected':'do_not_disturb_on'}];
-  selectedJoiningStatus = ''
+  joiningStatus = [
+    { joining: 'thumb_up' },
+    { declined: 'thumb_down' },
+    { rejected: 'do_not_disturb_on' },
+  ];
+  selectedJoiningStatus = '';
   constructor(private dataService: DataService) {}
 
   getOffers() {
     this.offerList = offers;
-    // this.dataService.getCandidte().subscribe((candidate) => {
-    //   this.candidateDetail = candidate;
-    // });
   }
   activeItem: string;
 
   setActiveItem(page: string) {
     this.activeItem = page;
-    this.getJoiningStatusIcon(this.activeItem)
-
+    this.getJoiningStatusIcon(this.activeItem);
   }
-  getJoiningStatusIcon(item){
-    this.selectedJoiningStatus = this.joiningStatus.filter(x=>x[item])[0][item];
+  getJoiningStatusIcon(item) {
+    this.selectedJoiningStatus = this.joiningStatus.filter((x) => x[item])[0][
+      item
+    ];
     return this.selectedJoiningStatus;
   }
   ngOnInit() {

@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,12 +9,7 @@ import { OffersComponent } from './offers/offers.component';
 import { ProspectsComponent } from './prospects/prospects.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, BrowserAnimationsModule, MaterialModule],
   declarations: [
     AppComponent,
     HeaderComponent,

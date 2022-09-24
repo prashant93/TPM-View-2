@@ -5,7 +5,7 @@ import candidates from '../../assets/candidate.json';
 @Component({
   selector: 'app-prospects',
   templateUrl: './prospects.component.html',
-  styleUrls: ['./prospects.component.css']
+  styleUrls: ['./prospects.component.css'],
 })
 export class ProspectsComponent implements OnInit {
   candidateDetails: any;
@@ -20,10 +20,6 @@ export class ProspectsComponent implements OnInit {
       (x) => x.isDropped == false
     );
     this.droppedList = this.candidateDetails.filter((x) => x.isDropped == true);
-
-    // this.dataService.getCandidte().subscribe((candidate) => {
-    //   this.candidateDetail = candidate;
-    // });
   }
 
   ngOnInit() {
