@@ -27,5 +27,6 @@ export class ProspectsComponent implements OnInit {
   }
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.prospectsList, event.previousIndex, event.currentIndex);
+    // alert('Order changed');
   }
 }
